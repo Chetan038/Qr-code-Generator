@@ -13,23 +13,10 @@ Create QR codes for Passwords
 Convert any text into a QR code
 Customizable size and error correction level for generated QR codes
 Simple and easy to use interface
-Installation
-Clone the repository:
 
-bash
-Copy code
-git clone https://github.com/your-username/qr-code-generator.git
-Install the necessary dependencies:
 
-bash
-Copy code
-cd qr-code-generator
-pip install -r requirements.txt
-Run the application:
 
-bash
-Copy code
-python qr_code_generator.py
+
 How to Use
 To generate a QR code for a URL: Simply enter the URL into the input field and press "Generate."
 To generate a QR code for a password: Enter the password you want to store and generate a QR code.
