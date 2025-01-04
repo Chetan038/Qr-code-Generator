@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Ensure the body takes full height of the page */
+        .bannerForm {
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bootstrap-like shadow */
+            text-align: center; /* Center text inside the form */
+        }
+        /* Position form on the left-most side */
+        .left-form-container {
+            position: absolute;
+            left: 8%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 300px; /* You can adjust the width as needed */
+        }
+        .right-form-container {
+            position: absolute;
+            left: 72%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 300px; /* You can adjust the width as needed */
+        }
+        .form-heading {
+            margin-bottom: 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <!-- QR Code Generator text stays on the left -->
+            <h2>QR Code Generator</h2>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <!-- Using ms-auto to push the navbar items to the right -->
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown link
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+
+    <div class="container" style="height: 100vh;">
+        <div class="row d-flex justify-content-center align-items-center" style="height: 100%;">
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="card shadow-lg">
+                    <img src="https://img.freepik.com/premium-photo/qr-code-background_721243-4065.jpg" id="ci" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">QR Code Generator</h5>
+                        <p class="card-text">A QR Code Generator creates scannable codes from data like URLs or text for quick access on smartphones.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Left-most form box with shadow -->
+    <div class="left-form-container">
+        <form action="" class="bannerForm shadow-lg" onsubmit="cimg(event)">
+            <!-- Heading for the form -->
+            <div class="form-heading">Want to make a link to QR code?</div>
+            
+            <!-- Input field for the link -->
+            <div class="mb-3">
+                <input type="text" class="form-control" id="qrLink" placeholder="E.g. https://www.myweb.com/">
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary">Generate QR</button>
+        </form>
+    </div>
+
+    <div class="right-form-container">
+        <form action="" class="bannerForm shadow-lg" onsubmit="cimg(event)">
+            <!-- Heading for the form -->
+            <div class="form-heading">Want to make a link to QR code?</div>
+            
+            <!-- Input field for the link -->
+            <div class="mb-3">
+                <input type="text" class="form-control" id="qrLinkRight" placeholder="Text or Wifi/HotSopt Passward">
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary">Generate QR</button>
+        </form>
+    </div>
+
+    <script>
+        function cimg(event) {
+            event.preventDefault(); // Prevent form from reloading the page
+            const cstmtxt = document.getElementById("qrLink").value || document.getElementById("qrLinkRight").value;
+            const url = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(cstmtxt)}`;
+            var imgg = document.getElementById("ci");
+            imgg.src = url;
+        }
+    </script>
+</body>
+</html>
