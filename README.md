@@ -1,5 +1,7 @@
 # Qr-code-Generator
 
+Live running project link:  https://thriving-kashata-aa474a.netlify.app/
+
 This project allows users to generate QR codes for different types of data. With this tool, you can create QR codes for:
 
 URLs: Easily convert a website link into a scannable QR code.
